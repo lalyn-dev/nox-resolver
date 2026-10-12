@@ -72,6 +72,10 @@ async function extrairLinkTerabox(shareUrl) {
   throw new Error("dlink não disponível direto — implemente a etapa de download assinado");
 }
 
-const PORT = 3000;
-app.listen(PORT, "127.0.0.1", () =>
-  console.log(`Resolvedor rodando em http://127.0.0.1:${PORT}`));
+// A porta vem do ambiente (Render define automaticamente via process.env.PORT).
+// Em produção o servidor PRECISA escutar em 0.0.0.0, senão o Render
+// não detecta a porta e o deploy falha com "no open ports / Timed Out".
+// Localmente, se não houver PORT, usa 3000.
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Resolvedor rodando na porta ${PORT}`));
