@@ -1,0 +1,13 @@
+{
+  "name": "terabox-resolver",
+  "version": "1.0.0",
+  "description": "Backend que resolve links do Terabox em URL direta para o site de filmes",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.19.2"
+  }
+}
